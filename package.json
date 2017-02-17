@@ -9,6 +9,7 @@
     "vuextcg": "./main.js"
   },
   "scripts": {
+    "lint": "standard main.js **/*.js",
     "test": "node main.js ./fixtures/store-test-1.js | diff fixtures/store-test-1-output.js -"
   },
   "dependencies": {
@@ -17,5 +18,8 @@
     "babel-preset-stage-2": "^6.22.0",
     "babel-register": "^6.23.0",
     "snake-case": "^2.1.0"
+  },
+  "devDependencies": {
+    "standard": "^8.6.0"
   }
 }
