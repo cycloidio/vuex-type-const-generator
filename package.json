@@ -1,7 +1,7 @@
 {
   "name": "vuex-type-const-generator",
   "version": "0.0.1",
-  "description": "Generate a file with contants for actions and mustions from a Vuex store definition",
+  "description": "Generate a file with constants for getters, actions and mutations from a Vuex store definition",
   "repository": "null",
   "author": "Cycloid (https://cycloid.io)",
   "license": "MIT",
