@@ -3,6 +3,10 @@ Vuex Type Constantats Generator
 
 Simple tool which read a Vuex state definition and output a JS ES2015 file which exports the 'getters', 'mutations' and 'actions' object which contains properties with the constant name convention (uppercase + snakecase) as their names and the Vuex types as value.
 
+## Considerations
+
+This tool has been developed with NodeJS v7 and we don't think to add support for previous versions.
+
 ## Install
 
 With NPM
