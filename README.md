@@ -27,16 +27,22 @@ You will get the same below message
 vuextcg [store-definition.js] [output]
 
 Read the input Vuex definition file to output a ES2015 module file which exports
-two properties:
+three properties:
 
   * getters: contains upper case properties with the getters types
   * mutations: contains upper case properties with the mutations types
   * actions: contains upper case properties with the actions types
 
 The Vuex definition file is required and has to be a module with a default
-exports with the store definition. If the file path is relative, then it's
-calculated from the current working directory of the Node.js process
-(process.cwd()), otherwise it's used as provided.
+exports with the store definition (an Object) or a function which returns
+the object definition, because it's preferred this last case sometimes to
+avoid that when the store definition is imported serveral time (for exmaple)
+in tests, it returns the same object instance which it's used as store.
+
+When the file path to the JS file which contains the store defintion is
+relative, then it's calculated from the current working directory of the
+Node.js process (process.cwd()), otherwise, it's considered absolute and
+it's used as provided.
 
 The output file is optional, using the standard output when isn't specified.
 
@@ -96,6 +102,19 @@ exports const mutations = {
 exports const actions = {
   GET_PROFILE: 'getProfile'
 }
+
+The same input, but exporting a function like:
+
+exports default function () {
+  return {
+    ...
+    mutations: {
+      increment(state) {
+    ....
+  }
+}
+
+would produce the same ouput than before.
 ```
 
 ## Development
