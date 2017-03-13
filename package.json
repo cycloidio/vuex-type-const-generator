@@ -2,7 +2,15 @@
   "name": "vuex-type-const-generator",
   "version": "0.2.0",
   "description": "Generate a file with constants for getters, actions and mutations from a Vuex store definition",
-  "repository": "null",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/cycloidio/vuex-type-const-generator"
+  },
+  "Keywords": [
+    "code-generation",
+    "vue",
+    "vuex"
+  ],
   "author": "Cycloid (https://cycloid.io)",
   "license": "MIT",
   "bin": {
