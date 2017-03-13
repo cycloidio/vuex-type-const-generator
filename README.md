@@ -17,7 +17,7 @@ With Yarn
 
 ## Docs
 
-The tool will who their own help command if your run it without any argument.
+The tool will show their own help command if your run it without any argument.
 
 If you don't have installed it globally (it's preferable not to so, for the reasons mentioned on [yarn docs comemnt](https://yarnpkg.com/en/docs/cli/add#toc-caveats)), then run `./node_modules/.bin/vuextcg`
 
