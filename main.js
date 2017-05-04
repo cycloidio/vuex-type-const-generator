@@ -116,6 +116,10 @@ const storeDefFilepath = (isAbsolute(process.argv[2]))
 const outputFd = (process.argv[3])
   ? fs.openSync(process.argv[3], 'w+', parseInt('777', 8)) : 1
 
+// Inject a fake window and document object in global scope
+global.window = fakeObject()
+global.document = fakeObject()
+
 const storeDefImp = require(storeDefFilepath).default
 const storeDef = (typeof storeDefImp === 'function') ? storeDefImp() : storeDefImp
 const getters = []
@@ -267,4 +271,28 @@ function toTypeConst (typePath) {
 function exitWithError (msg) {
   console.error(msg)
   process.exit(1)
+}
+
+/**
+ * Create an object which can be called as a function or asked for any property.
+ * The call as a function to itself or any of the properties as a function will
+ * return a new fakeObject, so it creates objects with infinite properties.
+ * This function is used to create global objects which exist in the browser but
+ * not in node, hence if any of the store definitions use some of the browser API,
+ * it won't crash and it will return the store definition, which is what's
+ * needed in this tool.
+ */
+function fakeObject () {
+  const target = function () {}
+  target.toString = () => ''
+  target.toJSON = () => ''
+
+  return new Proxy(
+    target,
+    {
+      get (target, prop) {
+        return fakeObject()
+      }
+    }
+  )
 }
