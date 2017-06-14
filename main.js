@@ -121,10 +121,18 @@ global.window = fakeObject()
 global.document = global.window
 
 const storeDefImp = require(storeDefFilepath).default
-const storeDef = (typeof storeDefImp === 'function') ? storeDefImp() : storeDefImp
 const getters = []
 const mutations = []
 const actions = []
+let storeDef
+
+if (typeof storeDefImp === 'function') {
+  // Call the function which initialize the definition with that many fake
+  // objects as needed parameters
+  storeDef = storeDefImp(...Array(storeDefImp.length).fill(global.window))
+} else {
+  storeDef = storeDefImp
+}
 
 extract(storeDef, [])
 
