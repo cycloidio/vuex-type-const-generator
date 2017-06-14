@@ -118,7 +118,7 @@ const outputFd = (process.argv[3])
 
 // Inject a fake window and document object in global scope
 global.window = fakeObject()
-global.document = fakeObject()
+global.document = global.window
 
 const storeDefImp = require(storeDefFilepath).default
 const storeDef = (typeof storeDefImp === 'function') ? storeDefImp() : storeDefImp
