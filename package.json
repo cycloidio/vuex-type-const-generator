@@ -20,8 +20,9 @@
     "lint": "standard main.js **/*.js",
     "test-exported-obj": "node main.js ./fixtures/store-test-obj.js | diff fixtures/store-test-output.js -",
     "test-exported-func": "node main.js ./fixtures/store-test-func.js | diff fixtures/store-test-output.js -",
+    "test-exported-func-di": "node main.js ./fixtures/store-test-func-di.js | diff fixtures/store-test-output.js -",
     "test-exported-with-globals": "node main.js ./fixtures/store-test-with-globals.js | diff fixtures/store-test-output.js -",
-    "test": "npm run -s test-exported-obj && npm run -s test-exported-func && npm run -s test-exported-with-globals"
+    "test": "npm run -s test-exported-obj && npm run -s test-exported-func && npm run -s test-exported-func-di && npm run -s test-exported-with-globals"
   },
   "dependencies": {
     "babel-plugin-transform-runtime": "^6.23.0",
