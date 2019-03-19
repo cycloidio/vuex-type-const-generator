@@ -93,9 +93,17 @@ exports default function () {
 would produce the same ouput than before.
 `
 
-require('babel-register')({
-  presets: ['es2015', 'stage-2'],
-  plugins: ['transform-runtime']
+require('@babel/register')({
+  presets: [
+    [
+      '@babel/preset-env', {
+        targets: {
+          node: 'current'
+        }
+      }
+    ]
+  ],
+  plugins: ['@babel/plugin-transform-runtime']
 })
 
 const fs = require('fs')
