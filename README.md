@@ -5,21 +5,17 @@ Simple tool which read a Vuex state definition and output a JS ES2015 file which
 
 ## Considerations
 
-This tool has been developed with NodeJS v7 and we don't think to add support for previous versions.
+This tool has been developed with NodeJS v7, but the last changes has been made with NodeJS v11, so at this time only guarantee the support for this last version.
 
 ## Install
 
-With NPM
 `npm install vuex-type-const-generator`
-
-With Yarn
-`yarn add vuex-type-const-generator`
 
 ## Docs
 
 The tool will show their own help command if your run it without any argument.
 
-If you don't have installed it globally (it's preferable not to so, for the reasons mentioned on [yarn docs comemnt](https://yarnpkg.com/en/docs/cli/add#toc-caveats)), then run `./node_modules/.bin/vuextcg`
+If you don't have installed it globally, for the reasons mentioned on [yarn docs comment](https://yarnpkg.com/en/docs/cli/add#toc-caveats)), then run `./node_modules/.bin/vuextcg`
 
 You will get the same below message
 
